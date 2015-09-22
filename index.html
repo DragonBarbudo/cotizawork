@@ -92,8 +92,9 @@
           </md-card>
           <md-card class="result sugerido">
             <md-card-content ng-if="total.costo">
-              <h3>El precio sugerido de venta es   <strong>{{(total.costo*.4)+total.costo | currency}}</strong></h3>
-              <p>Este precio esta basado con respecto al mercado bajo-medio de desarrollo digital. </p>
+              <h3>El precio sugerido de venta es   <strong>{{total.venta = (total.costo*.4)+total.costo | currency}}</strong></h3>
+              <p>Tu ganancia es de {{total.ganancia = total.venta - total.costo | currency}}</p>
+              <p>Este precio esta basado con respecto al mercado bajo-medio de desarrollo digital. Si </p>
             </md-card-content>
           </md-card>
         </md-content>

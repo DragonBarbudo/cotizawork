@@ -91,8 +91,9 @@ html
               p Se divide en 50% y 50% distribuídos al inicio o primer avance y término del proyecto.
           md-card.result.sugerido: md-card-content(ng-if="total.costo")
               h3 El precio sugerido de venta es   
-                strong {{(total.costo*.4)+total.costo | currency}}
-              p Este precio esta basado con respecto al mercado bajo-medio de desarrollo digital. 
+                strong {{total.venta = (total.costo*.4)+total.costo | currency}}
+              p Tu ganancia es de {{total.ganancia = total.venta - total.costo | currency}}
+              p Este precio esta basado con respecto al mercado bajo-medio de desarrollo digital. Si 
           
 
 
