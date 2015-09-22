@@ -1,0 +1,108 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title cotiza.work
+    link(rel="stylesheet", href='https://gitcdn.xyz/repo/angular/bower-material/v0.11.0/angular-material.css')
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet", href="css/style.css")
+  body(ng-app="MyApp")
+    
+        
+        
+    .full(ng-controller="ProductosCtrl")
+      md-toolbar(layout="column").header
+        .md-toolbar-tools.mainToolbar
+          md-button
+            md-icon(md-svg-src="img/cotizawork.svg")
+          span(flex)
+          md-button.md-icon-button
+            md-icon(md-font-set="material-icons") eject
+            
+      .productos(layout="column") 
+        md-toolbar
+          .md-toolbar-tools
+            h2: span Paquetes y promociones
+            span(flex)
+
+        md-content(flex)
+          md-card(ng-repeat="item in items | filter:{Paquete:'true'}")
+            md-card-content
+              h3
+                span {{item.Producto}}
+                small {{item.Costo | currency}}
+                  span.color  |   
+                  span {{item.Tiempo}} días
+              md-list
+                md-subheader Incluye:
+                md-list-item(ng-repeat="pi in item.Descripcion") {{pi.Producto}}
+              
+            div(layout="row").md-actions
+              p.nota {{item.Nota}}
+              span(flex)
+              md-button.md-primary(ng-click="addToQuote(item._id)") Añadir a cotización
+              
+        md-toolbar
+          .md-toolbar-tools
+            h2: span Productos y módulos
+            span(flex)
+            md-input-container
+              label Buscar...
+              input(ng-model="buscarProducto")
+        md-content(flex)
+          md-card(ng-repeat="item in items | filter:{Paquete:'!true'} | filter:buscarProducto")
+            md-card-content
+              h3
+                span {{item.Producto}}
+                small {{item.Costo | currency}}
+                  span.color  |   
+                  span {{item.Tiempo}} días
+              p {{item.Descripcion}}
+            div(layout="row").md-actions
+              md-button(ng-click="filterThis(item.Tipo)")
+                span {{item.Tipo}}
+              span(flex)
+              md-button.md-primary(ng-click="addToQuote(item._id)") Añadir a cotización
+                
+    
+      .cotizacion(layout="column") 
+        md-toolbar()
+            .md-toolbar-tools
+              h2: span Tu cotización
+        md-content(flex)
+          md-card(ng-repeat="item in quoters track by $index")
+            md-card-content
+              md-button.md-fab.md-mini.removeItemBtn(ng-click="removeFromQuote($index)", aria-label="Close")
+                md-icon(md-font-icon="material-icons") remove_circle
+              h3
+                span {{item.Producto}}
+                small {{item.Costo | currency}}
+                  span.color  | 
+                  span {{item.Tiempo}} días
+          md-card.result.dias: md-card-content(ng-if="total.dias")
+              h3 Tu producto estará listo en 
+                strong {{total.dias}} 
+                | días
+              p Para cumplir la fecha de entrega en necesario que tengamos la mayoría de lo activos y recursos para el proyecto al momento de realizar el pedido.
+          md-card.result.costo: md-card-content(ng-if="total.costo")
+              h3 Con un costo de 
+                strong {{total.costo | currency}}
+              p Se divide en 50% y 50% distribuídos al inicio o primer avance y término del proyecto.
+          md-card.result.sugerido: md-card-content(ng-if="total.costo")
+              h3 El precio sugerido de venta es   
+                strong {{(total.costo*.4)+total.costo | currency}}
+              p Este precio esta basado con respecto al mercado bajo-medio de desarrollo digital. 
+          
+
+
+
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-messages.min.js')
+    script(src='https://gitcdn.xyz/repo/angular/bower-material/v0.10.1/angular-material.js')
+    script(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(src="js/index.js")

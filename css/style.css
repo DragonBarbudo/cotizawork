@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+}
+.mainToolbar {
+  background: #41414c !important;
+}
+.full {
+  height: 100%;
+  box-sizing: border-box;
+}
+.header {
+  height: 7%;
+}
+.productos,
+.cotizacion {
+  height: 93%;
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+}
+.productos md-content,
+.cotizacion md-content {
+  padding: 2px;
+}
+.productos md-list-item,
+.cotizacion md-list-item {
+  border-bottom: 1px solid #aaa;
+}
+.productos md-toolbar {
+  background: #474754;
+}
+.cotizacion md-toolbar {
+  background: #56bbe9;
+}
+.toright {
+  text-align: right;
+}
+md-card-content {
+  position: relative;
+}
+md-card-content .md-button {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+}
+md-card-content .md-button.removeItemBtn {
+  transform: scale(0.6, 0.6);
+}
+md-card-content .md-button.removeItemBtn md-icon {
+  font-size: 26px;
+  line-height: 0.9em;
+}
+h3 {
+  font-weight: lighter;
+}
+h3 > span {
+  float: left;
+}
+h3 small {
+  font-size: 0.7em;
+  display: block;
+  text-align: right;
+  color: #888;
+}
+h3 small span.color {
+  color: #474754;
+  font-weight: bold;
+  margin: 0 10px;
+}
+p {
+  clear: both;
+  font-size: 0.9em;
+}
+md-icon[md-font-icon] {
+  font-size: 12px;
+  line-height: 2;
+}
+.result {
+  color: #fff;
+  text-align: right;
+}
+.result.dias {
+  background: #ca8260;
+}
+.result.costo {
+  background: #56bbe9;
+}
+.result.sugerido {
+  background: #94c149;
+}
+md-input-container label,
+md-input-container .md-placeholder,
+md-input-container:not(.md-input-invalid).md-input-focused label,
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+  border-color: #56bbe9;
+  color: #56bbe9;
+}
+md-input-container .md-input {
+  color: #56bbe9;
+}
+.nota {
+  color: #ca8260;
+  margin: 10px;
+}
+md-list-item {
+  min-height: 32px;
+  color: #3d86a6;
+}
