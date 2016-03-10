@@ -21,12 +21,11 @@ html
             md-icon(md-font-set="material-icons") eject
             
       .productos(layout="column") 
-        md-toolbar
+        //md-toolbar
           .md-toolbar-tools
             h2: span Paquetes y promociones
             span(flex)
-
-        md-content(flex)
+        //md-content(flex)
           md-card(ng-repeat="item in items | filter:{Paquete:'true'}")
             md-card-content
               h3

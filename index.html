@@ -21,26 +21,29 @@
         </div>
       </md-toolbar>
       <div layout="column" class="productos"> 
-        <md-toolbar>
-          <div class="md-toolbar-tools">
-            <h2><span>Paquetes y promociones</span></h2><span flex></span>
-          </div>
-        </md-toolbar>
-        <md-content flex>
-          <md-card ng-repeat="item in items | filter:{Paquete:'true'}">
-            <md-card-content>
-              <h3><span>{{item.Producto}}</span><small>{{item.Costo | currency}}<span class="color"> |   </span><span>{{item.Tiempo}} días</span></small></h3>
-              <md-list>
-                <md-subheader>Incluye:</md-subheader>
-                <md-list-item ng-repeat="pi in item.Descripcion">{{pi.Producto}}</md-list-item>
-              </md-list>
-            </md-card-content>
-            <div layout="row" class="md-actions">
-              <p class="nota">{{item.Nota}}</p><span flex></span>
-              <md-button ng-click="addToQuote(item._id)" class="md-primary">Añadir a cotización</md-button>
-            </div>
-          </md-card>
-        </md-content>
+        <!--md-toolbar
+        .md-toolbar-tools
+          h2: span Paquetes y promociones
+          span(flex)
+        -->
+        <!--md-content(flex)
+        md-card(ng-repeat="item in items | filter:{Paquete:'true'}")
+          md-card-content
+            h3
+              span {{item.Producto}}
+              small {{item.Costo | currency}}
+                span.color  |   
+                span {{item.Tiempo}} días
+            md-list
+              md-subheader Incluye:
+              md-list-item(ng-repeat="pi in item.Descripcion") {{pi.Producto}}
+            
+          div(layout="row").md-actions
+            p.nota {{item.Nota}}
+            span(flex)
+            md-button.md-primary(ng-click="addToQuote(item._id)") Añadir a cotización
+            
+        -->
         <md-toolbar>
           <div class="md-toolbar-tools">
             <h2><span>Productos y módulos</span></h2><span flex></span>
